@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escalation Workflow Tree</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      background: #f4f6f8;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+    .tree li {
+      margin: 0 0 15px 0;
+      position: relative;
+    }
+    .tree li::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: -25px;
+      border-left: 3px solid #bbb;
+      border-bottom: 3px solid #bbb;
+      width: 25px;
+      height: 20px;
+    }
+    .tree li:first-child::before {
+      border-top: 3px solid #bbb;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 15px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      flex-direction: column;
+    }
+    .step:hover {
+      transform: scale(1.02);
+      background-color: #f0f8ff;
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon {
+      width: 32px;
+      height: 32px;
+      background-color: #3498db;
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      line-height: 32px;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .box {
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 15px;
+      width: fit-content;
+    }
+    .note {
+      color: #666;
+      font-size: 0.9em;
+      display: block;
+      margin-left: 42px;
+    }
+    .disclaimer {
+      font-style: italic;
+      text-align: center;
+      color: #999;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>🚀 Escalation Workflow Tree</h2>
+  <div class="tree">
+    <ul>
+      <li>
+        <div class="step">
+          <div class="step-header"><div class="icon">📩</div><div class="box">When Ticket received</div></div>
+        </div>
+        <ul>
+          <li>
+            <div class="step">
+              <div class="step-header"><div class="icon">👩‍💼</div><div class="box">THEN HelpDesk(Saira / Asif)</div></div>
+              <span class="note">IF issue is basic and resolvable → Try to Resolve and update customer</span>
+              <span class="note">ELSE discuss it with Nabeel</span>
+            </div>
+            <ul>
+              <li>
+                <div class="step">
+                  <div class="step-header"><div class="icon">🧑‍💼</div><div class="box">THEN Nabeel</div></div>
+                  <span class="note">IF resolved → Update customer</span>
+                  <span class="note">ELSE discuss it with Muhammad</span>
+                </div>
+                <ul>
+                  <li>
+                    <div class="step">
+                      <div class="step-header"><div class="icon">🧑‍💻</div><div class="box">THEN Muhammad</div></div>
+                      <span class="note">IF resolved → Update customer</span>
+                      <span class="note">ELSE escalate to Junior Engineer (Anton / Vardges)</span>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="step">
+                          <div class="step-header"><div class="icon">👨‍🔧</div><div class="box">THEN Junior Engineer (Anton / Vardges)</div></div>
+                          <span class="note">IF issue is simple → Resolve and update customer</span>
+                          <span class="note">ELSE ask to Ahmad (Senior Engineer)</span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div class="step">
+                              <div class="step-header"><div class="icon">🧠</div><div class="box">THEN Ahmad (Senior Engineer)</div></div>
+                              <span class="note">IF urgent/critical → Escalate to Jayesh (Lead Engineer)</span>
+                              <span class="note">ELSE try to resolve and update customer</span>
+                            </div>
+                            <ul>
+                              <li>
+                                <div class="step">
+                                  <div class="step-header"><div class="icon">🚨</div><div class="box">THEN Jayesh (Lead Engineer)</div></div>
+                                  <span class="note">→ Immediate fixes for production-down issues</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="step">
+                                  <div class="step-header"><div class="icon">✅</div><div class="box">THEN Update Customer</div></div>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="disclaimer">🔒 Direct escalation to higher levels is not allowed. All issues must pass through the defined IF → THEN path step-by-step.</div>
+</body>
+</html>
